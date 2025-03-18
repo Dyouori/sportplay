@@ -11,6 +11,8 @@ const http = axios.create({
 // 请求拦截，在每个请求发送前从本地get到token添加到请求头
 http.interceptors.request.use(
   config => {
+    console.log(localStorage.getItem("token"));
+    
     // 从sessionStorage中获取token
     const token = JSON.parse(window.sessionStorage.getItem("token")) // 直接获取，不需要JSON.parse
    // console.log("拿到token:", token);
@@ -19,6 +21,8 @@ http.interceptors.request.use(
     if (token) {
       config.headers['token'] = token; // 或使用 'Authorization': 'Bearer ' + token;
      // console.log("设置请求头token:", config.headers['token']);
+    }else{
+      config.headers['token'] = localStorage.getItem("token");
     }
     
     return config;

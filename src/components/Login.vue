@@ -12,8 +12,9 @@
         label-width="0px"
       >
         <!-- 用户名 -->
-        <el-form-item prop="username">
+        <el-form-item prop="username" >
           <el-input
+          :disabled="isSuperAdmin"
             v-model="loginForm.username"
             prefix-icon="iconfont icon-denglu"
           ></el-input>
@@ -21,6 +22,7 @@
         <!-- 密码 -->
         <el-form-item prop="password">
           <el-input
+          :disabled="isSuperAdmin"
             v-model="loginForm.password"
             prefix-icon="iconfont icon-mima"
             type="password"
@@ -32,6 +34,7 @@
         <!-- 验证码 -->
         <el-form-item prop="identifyCode" class="identify-code-item">
           <el-input
+          :disabled="isSuperAdmin"
             v-model="loginForm.identifyCode"
             placeholder="请输入验证码"
             class="identify-code-input"
@@ -56,6 +59,7 @@
             v-model="loginForm.role"
             placeholder="请选择身份"
             style="width: 418px"
+            @change="handleRoleChange"
           
           >
             <el-option :key="0" label="普通用户" :value="0"></el-option>
@@ -69,13 +73,25 @@
           <el-button type="info" @click="resetLoginForm">重置</el-button>
           <!-- 注册按钮 -->
           <el-button type="success" @click="$router.push('/register')">注册</el-button>
-          <el-button type="primary" @click="$router.push('/faceLogin')">人脸登录</el-button>
+          <!-- <el-button type="primary" @click="faceLog">人脸登录</el-button> -->
+         <!-- <el-button type="primary" @click="$router.push('/faceLogin')">人脸登录</el-button> -->
         </el-form-item>
       </el-form>
       
       
     </div>
+    <el-dialog
+  title="请输入管理员专用码"
+  :visible.sync="dialogVisible"
+  width="30%"
+  :before-close="handleClose">
+ <el-input v-model="adminPSW" show-password></el-input>
+   <div style="margin-top: 20px; display: flex; justify-content: right;">
+    <el-button @click="dialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="submit">确 定</el-button>
 
+   </div>
+</el-dialog>
   </div>
 </template>
 
@@ -121,9 +137,43 @@ export default {
       },
       identifyCodes: "0123456789",
       identifyCode: "",
+      dialogVisible: false,
+      adminPSW:'',
+    }
+  },
+  computed: {
+    isSuperAdmin() {
+      return this.loginForm.role === 1;
     }
   },
   methods: {
+    submit(){
+      if(this.adminPSW === '123456'){
+        this.dialogVisible = false
+        this.$router.push('/faceLogin')
+      }else{
+        this.$message({
+          message: '密码错误',
+          type: 'error'
+        });
+      }
+     
+      
+    },
+    handleClose(done) {
+        
+            done();
+         
+    },
+    handleRoleChange(value) {
+      if (value === 1) {
+        // 当选择超级管理员时，显示弹窗
+        this.dialogVisible = true;
+      }
+    },
+    // faceLog(){
+    //   window.open('http://10.10.12.216:8081/','_blank')
+    // },
     resetLoginForm() {
       this.$refs.loginFormRef.resetFields();
     },

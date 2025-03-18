@@ -15,17 +15,17 @@ import NotFound from '@/components/404.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  // { path: '/faceLogin', component: () => import('@/views/login/index') },
-  // {
-  //   path: '/facehome',
-  //   component: () => import('@/views/home/index'),
-  //   redirect: '/desktop',
-  //   children: [
-  //     { path: '/desktop', component: () => import('@/components/faceComponents/desktop/index') },
-  //     { path: '/faceList', component: () => import('@/components/faceComponents/face/index') },
-  //     { path: '/faceLog', component: () => import('@/components/faceComponents/faceLog/index') }
-  //   ]
-  // },
+  { path: '/faceLogin', component: () => import('@/components/face/views/login/index.vue') },
+  {
+    path: '/facehome',
+    component: () => import('@/components/face/views/home/index'),
+    redirect: '/desktop',
+    children: [
+      { path: '/desktop', component: () => import('@/components/face/components/desktop/index') },
+      { path: '/faceList', component: () => import('@/components/face/components/face/index') },
+      { path: '/faceLog', component: () => import('@/components/face/components/faceLog/index') }
+    ]
+  },
   {
     path:'/',
     redirect:'/login'
@@ -121,8 +121,6 @@ const router = new VueRouter({
 })
 
 
-// 挂载路由导航守卫
-// 挂载路由导航守卫
 router.beforeEach((to, from, next) => {
   // 如果访问的是登录页面，直接放行
   if (to.path === '/login') {
@@ -133,12 +131,12 @@ router.beforeEach((to, from, next) => {
   const user = window.sessionStorage.getItem("user");
 
   // 如果没有登录，并且访问的不是注册页面，重定向到登录页面
-  if (!user && to.path !== '/register') {
-    return next('/login');
-  }
+  // if (!user && to.path !== '/register') {
+  //   return next('/login');
+  // }
 
   // 如果访问的是注册页面或人脸识别页面，直接放行
-  if (to.path === '/register') {
+  if (to.path === '/register'|| to.path === '/facehome' || to.path === '/faceLogin') {
     return next();
   }
 

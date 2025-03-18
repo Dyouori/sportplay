@@ -1,13 +1,10 @@
 <template>
   <div>
 
-
-    <!--数据显示区域-->
+    <!--条件搜索区域-->
     <el-row>
-  
       <el-col :span="24">
-        
-        <el-card>
+        <el-card header="人脸列表">
           <el-form :inline="true">
               <el-form-item label="人脸名称">
                 <el-input
@@ -24,60 +21,62 @@
               </el-select>
             </el-form-item>
             <el-form-item>
-              <el-button icon="el-icon-search" size="medium" @click="getFaceList">搜索</el-button>
-              <el-button  size="medium" type="primary" @click="handleSave()" icon="el-icon-circle-plus-outline">添加人脸</el-button>
+              <el-button icon="el-icon-search" @click="getFaceList">搜索</el-button>
             </el-form-item>
           </el-form>
+        </el-card>
+      </el-col>
+    </el-row>
+
+
+    <!--数据显示区域-->
+    <el-row>
+      <el-col :span="24">
+        <el-card>
           <el-header style="background-color: #ffffff">
-            
+            <el-button @click="handleSave()" icon="el-icon-circle-plus-outline">添加人脸</el-button>
           </el-header>
           <el-table
               :data="tableData"
-              style="width: 100%;font-size: 14px;margin-top: -18px;">
-            <!-- <el-table-column
+              style="width: 100%">
+            <el-table-column
                 width="100"
                 prop="fid"
                 label="编号" sortable>
-            </el-table-column> -->
-            <el-table-column align="center" type="index"></el-table-column>
+            </el-table-column>
+
             <el-table-column
-            align="center"
                 width="150"
                 prop="date"
                 label="人脸图片">
               <template slot-scope="scope">
-                <el-button type="success" icon="el-icon-picture-outline" size="mini" @click="selectImg(scope.row.faceBase)">查看人脸</el-button>
+                <el-button icon="el-icon-picture-outline" size="mini" @click="selectImg(scope.row.faceBase)">查看人脸</el-button>
               </template>
             </el-table-column>
 
             <el-table-column
                 prop="createTime"
-                align="center"
                 label="创建时间" width="200" sortable>
             </el-table-column>
 
             <el-table-column
                 prop="vefNum"
-                align="center"
-                label="验证次数" >
+                label="验证次数" sortable>
             </el-table-column>
 
             <el-table-column
                 prop="faceName"
-                align="center"
                 label="姓名">
             </el-table-column>
 
             <el-table-column
-            align="center"
                 prop="remark"
                 label="备注">
             </el-table-column>
 
             <el-table-column
-            align="center"
                 prop="faceStatus"
-                label="是否启用" >
+                label="是否启用" sortable>
               <template slot-scope="scope">
                 <el-switch
                     :value="scope.row.faceStatus===0"
@@ -87,7 +86,7 @@
               </template>
             </el-table-column>
 
-            <el-table-column align="center" label="操作" width="230">
+            <el-table-column label="操作" width="230">
               <template slot-scope="scope">
                 <el-button
                     icon="el-icon-edit"

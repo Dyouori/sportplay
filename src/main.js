@@ -5,6 +5,7 @@ import './plugins/element.js'
 import './assets/css/global.css'
 import './assets/font/iconfont.css'
 import './assets/css/reset.css'
+
 // 数据校验工具类
 import * as validate from '@/utils/validate.js'
 import store from './store/user'; // 引入仓库
@@ -21,7 +22,7 @@ import 'video.js/dist/video-js.css'
  // 引入框架
 import 'face-effet/effet/effet.css'
 import faceEffet from 'face-effet/effet/effet.js'
-
+import face_axios from '@/components/face/face_axios'
 // 注册为全局
 Vue.prototype.$faceEffet = faceEffet
 
@@ -47,6 +48,7 @@ Vue.prototype.$https = http
 //挂载检验格式
 Vue.prototype.$validate = validate
 
+Vue.prototype.$faceAxios = face_axios
 //设置访问根路径---默认根路径
 axios.defaults.baseURL = "http://localhost:9000"
 

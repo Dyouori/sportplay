@@ -145,7 +145,8 @@ export default {
   },
   mounted() {
     //展示管理员姓名
-    this.adminName = JSON.parse(sessionStorage.getItem("user")).username;
+    this.adminName ='admin'
+   //  JSON.parse(sessionStorage.getItem("user")).username;
   },
   created() {
     this.activePath = window.sessionStorage.getItem("activePath");
