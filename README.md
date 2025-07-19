@@ -15,5 +15,56 @@ npm run serve
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## **项目简介：**
+
+前后端分离：采用 Java 11 + Springboot 作为后端框架，负责业务逻辑处理和数 据库交互，提供接口；
+
+前端使用 Vue.js 框架，通过 axios 进行数据请求，实现页面的 动态渲染和交互。
+
+后端使用了MyBatis
+
+ 数据库设计：设计 MySQL 数据库中相关信息表，保证数据的完整性和一致性。
+
+## **模块设计**
+
+#### 管理员：
+
+登录可以人脸识别，需要密码，设置的是123456
+
+![image-20250719145412077](C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20250719145412077.png)
+
+课程管理：管理系统可以录入、修改和查询课程的基本信息，如名称、价格、 简介、备注等 
+
+课程类型管理：系统可以管理课程的类型信息，包括类型的名称等 
+
+用户管理：管理和浏览网站的用户信息，可以新增、编辑和删除用户。 
+
+统计分析：系统可以根据课程的活动数据进行统计分析 
+
+模糊搜索：顶部搜索功能，支持模糊搜索课程信息。 
+
+食物管理：管理系统可以录入、修改和查询食物的基本信息。 
+
+食物类型管理：系统可以管理食物的类型信息，包括类型的名称等。 
+
+#### 用户：
+
+![image-20250719145430022](C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20250719145430022.png)
+
+#### 管理员端页面：
+
+![image-20250719145533844](C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20250719145533844.png)
+
+人脸识别：
+
+![image-20250719145628808](C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20250719145628808.png)
+
+#### 用户界面
+
+首页是轮播图
+
+剩下功能省略
+
+![image-20250719145702006](C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20250719145702006.png)
+
+![image-20250719145728935](C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20250719145728935.png)
