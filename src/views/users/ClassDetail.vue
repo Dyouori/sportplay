@@ -165,7 +165,7 @@
                         class="avator"
                       />
                       <div class="person">
-                        <div class="name">{{ comment.user_name }}</div>
+                        <div class="name">{{ comment.name }}</div>
                         <div class="time">
                           {{ formatTime(comment.comment_time, true) }}
                         </div>
@@ -244,6 +244,7 @@ export default {
       payload:{},
       user_phone:'',
       user_name:'',
+      yue:0,
     };
   },
   computed: {
@@ -251,9 +252,9 @@ export default {
       // 根据 sortOrder 计算属性来返回排序后的评论列表
       return this.commentList.sort((a, b) => {
         if (this.sortOrder === "latest") {
-          return b.comment_time - a.comment_time; // 从新到旧排序
+          return b.commentTime - a.commentTime; // 从新到旧排序
         } else {
-          return a.comment_time - b.comment_time; // 从旧到新排序
+          return a.commentTime - b.commentTime; // 从旧到新排序
         }
       });
     },
@@ -286,7 +287,7 @@ export default {
 
       // 遍历返回的数组
       for (const item of res.data) {
-        if (item.user_id == this.userId && item.class_id == this.classId) {
+        if (item.userId == this.userId && item.classId == this.classId) {
           // 如果存在，设置 this.isPay 为 true 并退出循环
           this.isPay = true;
           break;
@@ -305,13 +306,29 @@ export default {
         }
       )
         .then(async () => {
-  
+          
+          this.$store
+        .dispatch("getMoney", this.userId)
+        .then(() => {
+          this.yue = this.$store.state.money;
+        })
+       this.yue = this.$store.GetMoney;
+      
+        
+      if (this.yue < this.classInfo.price) {
+        // 如果余额不足，弹出提示并终止购买流程
+        this.$message({
+          type: "error",
+          message: "余额不足，无法购买课程。",
+        });
+        return; // 终止函数执行
+      }
          this.payData = {
-            user_id: this.userId,
-            class_id: this.classId,
+            userId: this.userId,
+            classId: this.classId,
             price: this.classInfo.price,
             status: "已支付",
-            order_number:Math.floor(1000 + Math.random() * 9000),
+            orderNumber:Math.floor(1000 + Math.random() * 9000),
             name: this.user_name,
             phone:this.user_phone
           };     
@@ -322,8 +339,6 @@ export default {
                 user_id: this.userId,
                 money: this.classInfo.price,
               })
-
-          
 
           if (res === "success") {
             // 假设后端返回的数据结构中有 success 字段表示操作是否成功
@@ -368,10 +383,11 @@ export default {
     },
     async sendComment() {
       const data = {
-        user_id: this.userId,
-        class_id: this.classId,
+        userId: this.userId,
+        classId: this.classId,
         content: this.$refs.contentInput.value,
       };
+
       const res = await this.$https.post("sendComment", data);
       if (res.status === 200) {
         this.$message.success("评论成功!");
@@ -491,6 +507,7 @@ export default {
   /* 确保父容器有高度，这里假设父容器高度为100% */
   width: 100%;
   /* 确保父容器有宽度，这里假设父容器宽度为100% */
+  overflow: auto;
 }
 .things-info {
   display: flex;
@@ -507,6 +524,7 @@ export default {
 .thing-infos-view {
   width: 90%;
   margin: 0 auto;
+  
 }
 .detail-content-bottom {
   width: 80%;
@@ -549,9 +567,13 @@ export default {
   display: flex;
   margin-top: 15px;
   padding-bottom: 50px;
+  overflow: auto;
+  /* 超出可以有滚动条 */
+  
 }
 .main-content {
   flex: 1;
+  overflow: auto;
 }
 .order-view {
   position: relative;
@@ -666,6 +688,7 @@ export default {
 .comments-list .comment-item .flex-item {
   align-items: center;
   padding-top: 16px;
+  overflow-y: auto;
 }
 .comments-list .comment-item .flex-item .avator {
   flex: 0 0 40px;

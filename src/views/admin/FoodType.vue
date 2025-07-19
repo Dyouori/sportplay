@@ -18,7 +18,7 @@
           </el-input>
         </el-col>
         <!-- 搜索按钮 -->
-        <el-col :span="2">
+        <el-col :span="3">
           <el-button type="primary" @click="addDialogVisible = true"
             >添加新分类</el-button
           >

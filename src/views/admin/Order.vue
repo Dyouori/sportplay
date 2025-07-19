@@ -74,10 +74,10 @@
         <el-table-column
           align="center"
           label="订单时间"
-          prop="pay_time"
+          prop="payTime"
         >
         <template slot-scope="scope">
-    {{ formatTimestamp(scope.row.pay_time) }}
+    {{ formatTimestamp(scope.row.payTime) }}
   </template>
       </el-table-column>
 
@@ -121,11 +121,9 @@
 <script>
 export default {
   created() {
-    var userString = window.sessionStorage.getItem("user");
 
-// 将字符串转换回JavaScript对象
-var user = JSON.parse(userString);
-this.userId = user.id;
+
+
     this.getOrderList();
     
   },

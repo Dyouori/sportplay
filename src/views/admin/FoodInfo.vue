@@ -47,13 +47,13 @@
           type="index"
         ></el-table-column>
   
-        <el-table-column align="center" label="食物名称" width="200px" prop="food_name">
+        <el-table-column align="center" label="食物名称" width="200px" prop="foodName">
         </el-table-column>
         <el-table-column
           align="center"
           width="200px"
           label="食物种类"
-          prop="food_type_title"
+          prop="foodTypeTitle"
         ></el-table-column>
         <el-table-column
           width="230px"
@@ -121,15 +121,15 @@
         @close="editDialogClosed"
       >
       <el-form  label-width="120px" :label-position="labelPosition"  :model="editForm" :rules="editFormRules" ref="editFormRef" >
-      <el-form-item label="食物名称" prop="food_name">
-            <el-input v-model="editForm.food_name"></el-input>
+      <el-form-item label="食物名称" prop="foodName">
+            <el-input v-model="editForm.foodName"></el-input>
           </el-form-item>
           <el-form-item label="卡路里(每100g)" prop="calorie">
             <el-input v-model="editForm.calorie"></el-input>
           </el-form-item>
           <el-form-item label="食物种类" prop="food_type">
             <el-select
-              v-model="editForm.food_type"
+              v-model="editForm.foodType"
               placeholder="请选择食物种类"
             >
               <el-option
@@ -178,12 +178,12 @@
      
           class="demo-ruleForm"
         >
-        <el-form-item label="食物名称" prop="food_name">
-            <el-input v-model="addForm.food_name"></el-input>
+        <el-form-item label="食物名称" prop="foodName">
+            <el-input v-model="addForm.foodName"></el-input>
           </el-form-item>
-          <el-form-item label="食物种类" prop="food_type">
+          <el-form-item label="食物种类" prop="foodType">
             <el-select
-              v-model="addForm.food_type"
+              v-model="addForm.foodType"
               placeholder="请选择食物种类"
             >
               <el-option
@@ -250,8 +250,8 @@
         editDialogVisible: false,
         // 添加新分类
         addForm: {
-         food_name:'',
-         food_type:'',
+         foodName:'',
+         foodType:'',
          calorie:'',
          score:'',
         },
@@ -264,15 +264,15 @@
         
         },
         editFormRules: {
-          title: [{ required: true, message: "请输入活动名称", trigger: "blur" }],
+          title: [{ required: true, message: "请输入食物名称", trigger: "blur" }],
           description: [
-            { required: false, message: "请填写课程描述", trigger: "change" },
+            { required: false, message: "请填写食物描述", trigger: "change" },
           ],
           classification_id: [
             {
               type: "array",
               required: true,
-              message: "请至少选择一个课程分类",
+              message: "请至少选择一个分类",
               trigger: "change",
             },
           ],
@@ -322,7 +322,7 @@
       //   删除分类
       async deleteUser(id) {
         const confirmResult = await this.$confirm(
-          "此操作将永久删除用户，是否继续？",
+          "此操作将永久删除，是否继续？",
           "提示",
           {
             confirmButtonText: "确定",

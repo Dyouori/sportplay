@@ -2,6 +2,7 @@
   <div class="content">
     <el-calendar>
       <template slot="dateCell" slot-scope="{ date, data }">
+        <!-- 通过使用这个插槽，你可以覆盖掉 el - calendar 组件默认的日期单元格显示方式，实现高度定制化。 -->
         <p
           :class="{ 'is-selected': isDateSelected(date) }"
           @click="toggleSelectDate(date)"

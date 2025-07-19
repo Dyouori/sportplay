@@ -11,7 +11,7 @@
             :key="item.id"
             @click="setTypeQuery(item)"
           >
-            {{ item.title }}
+            {{ item.ctitle }}
           </div>
         </div>
       </div>
@@ -32,8 +32,8 @@
     <div class="content-down">
       <div class="down-wrap">
         <div class="tab-view flex-view">
-          <div class="tab tab-select">最新</div>
-          <div class="tab">最热</div>
+          <div class="tab" :class="{ 'tab-select': currentTab === 'latest' }" @click="handleLastClick('latest')">最新</div>
+    <div class="tab" :class="{ 'tab-select': currentTab === 'hottest' }" @click="handleHotClick('hottest')">最热</div>
         </div>
         <div class="ant-spin-nested-loading">
           <div class="ant-spin-container">
@@ -63,7 +63,7 @@
                   <h3 class="thing-name">{{ item.title }}</h3>
                   <span>
                     <span class="a-price">{{ item.price }}元</span>
-                    <span class="a-price">{{ item.rate }}次浏览</span>
+                    <span class="a-price">{{ item.recommendCount }}次点击</span>
                   </span>
                 </div>
               </div>
@@ -89,6 +89,7 @@ export default {
         pageSize:12
       },
       classList: [],
+      currentTab: 'hottest', // 默认选中“最新”
     };
   },
   created() {
@@ -96,6 +97,24 @@ export default {
     this.getType();
   },
   methods: {
+    handleHotClick(){
+      this.currentTab = 'hottest'; // 更新当前选中的标签
+      this.sortShowList(); // 根据当前选中的标签排序
+      this.showList.sort((a, b) => a.id - b.id);
+    },
+    handleLastClick(tab) {
+      this.currentTab = 'latest'; // 更新当前选中的标签
+      this.sortShowList(); // 根据当前选中的标签排序
+    },
+    sortShowList() {
+      if (this.currentTab === 'latest') {
+        // 按照id降序排序
+        this.showList.sort((a, b) => b.id - a.id);
+      } else if (this.currentTab === 'hottest') {
+        // 按照recommend_count降序排序
+        this.showList.sort((a, b) => b.recommend_count - a.recommend_count);
+      }
+    },
     // 获取类型
     async getType() {
       const { data: res } = await this.$https.get("allclassification", {
@@ -113,7 +132,7 @@ export default {
     },
     // 根据标签选择
     setTypeQuery(item) {
-        this.queryInfo.query = item.title; // 当 div 被点击时，更新 queryInfo.query
+        this.queryInfo.query = item.ctitle; // 当 div 被点击时，更新 queryInfo.query
         this.getClass();
     },
     async allClass(){
@@ -125,7 +144,6 @@ export default {
       });
 
       this.showList = res.data; // 将返回数据赋值，数据封装
-       console.log(res);
       this.total = res.numbers; // 总个数
     },
     async setLevelQuery(item){

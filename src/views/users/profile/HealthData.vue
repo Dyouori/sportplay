@@ -90,7 +90,7 @@ export default {
       };
 
       // 定义要排除的键数组
-      const keysToExclude = ["user_id", "id", "weight", "height"];
+      const keysToExclude = ["user_id", "id", "weight", "height","date"];
 
       // 使用映射对象来转换键名，并排除特定的键
       this.tableData = Object.keys(res2)

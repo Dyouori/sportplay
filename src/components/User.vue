@@ -33,8 +33,9 @@
           <el-menu-item  index="/myInfo/editInfo">编辑资料</el-menu-item>
           <el-menu-item index="/myInfo/myOrder">我的订单</el-menu-item>
           <el-menu-item index="2-3">系统通知</el-menu-item>
-          <el-menu-item index="/login">退出登录</el-menu-item>
           <el-menu-item index="/myInfo/healthData">健康数据</el-menu-item>
+          <el-menu-item index="/login">退出登录</el-menu-item>
+         
         </el-submenu>
       </el-menu>
     </el-header>
@@ -62,6 +63,7 @@ export default {
 
 // 将字符串转换回JavaScript对象
     var user = JSON.parse(userString);
+    this.getUserPic(user.id);
     this.userPic = this.userPic = user.pic ? user.pic : ''; 
   },
   data() {
@@ -72,6 +74,16 @@ export default {
     };
   },
   methods: {
+    getUserPic(id){
+      this.$https.get("getUserPic?id=" + id).then((res) => {
+        if(res.status === 200){
+          this.userPic = res.data
+        }
+       else {
+          Message.error(res.data.msg);
+        }
+      });
+    },
     handleSelect(key, keyPath) {
       // 检查当前路由是否与即将跳转的路由相同
       if (this.$route.path !== key) {

@@ -33,11 +33,11 @@
           <div class="header clearfix">
             <div class="left">
               <span class="text">订单编号：</span>
-              <span class="num">{{ order.order_number }}</span>
+              <span class="num">{{ order.orderNumber }}</span>
             </div>
             <div class="right" style="display: flex; align-items: center; height: 40px; padding-right: 10px">
               <span class="time right">{{
-                formatTimestamp(order.pay_time)
+                formatTimestamp(order.payTime)
               }}</span>
               <el-button :disabled="order.status!=='已支付'" size="mini" type="primary" style="margin:auto;" @click="cancelStatus(order)">取消</el-button>
             </div>

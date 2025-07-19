@@ -2,7 +2,7 @@
   <div>
     <!-- 搜索 -->
     <el-row :gutter="25">
-      <el-col :span="5">
+      <el-col :span="6">
         <el-input
           placeholder="请输入搜索内容"
           clearable
@@ -18,12 +18,12 @@
         </el-input>
       </el-col>
       <!-- 搜索按钮 -->
-      <el-col :span="2">
+      <el-col :span="3">
         <el-button type="primary" @click="addDialogVisible = true"
           >添加新分类</el-button
         >
       </el-col>
-      <el-col :span="2">
+      <el-col :span="3">
         <el-button
           type="danger"
           @click="handleBatchDelete"
@@ -42,7 +42,7 @@
       @selection-change="handleSelectionChange"
     >
       <el-table-column type="selection" width="55"> </el-table-column>
-      <el-table-column label="分类名称" width="920%" prop="title">
+      <el-table-column label="分类名称" width="750" prop="ctitle">
       </el-table-column>
 
       <el-table-column label="操作" align="center" width="400px">
@@ -88,8 +88,8 @@
     >
       <el-form :model="editForm" ref="editFormRef" label-width="70px">
         <!-- 名称 -->
-        <el-form-item label="分类名" prop="title">
-          <el-input v-model="editForm.title"></el-input>
+        <el-form-item label="分类名" prop="ctitle">
+          <el-input v-model="editForm.ctitle"></el-input>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -106,8 +106,8 @@
     >
       <el-form :model="addForm" ref="addFormRef" label-width="70px">
         <!-- 名字 -->
-        <el-form-item label="分类名" prop="title">
-          <el-input v-model="addForm.title"></el-input>
+        <el-form-item label="分类名" prop="ctitle">
+          <el-input v-model="addForm.ctitle"></el-input>
         </el-form-item>
       </el-form>
       <!-- 底部 -->
@@ -142,7 +142,7 @@ export default {
       editDialogVisible: false,
       // 添加新分类
       addForm: {
-        title: "",
+        ctitle: "",
       },
       addDialogVisible: false, //添加对话框
       ids: [],

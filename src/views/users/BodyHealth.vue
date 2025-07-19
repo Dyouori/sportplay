@@ -121,6 +121,7 @@ export default {
   methods: {
     async getHealthData() { 
       const { data: res } = await this.$https.get("getHealth?id=" + this.formLabelAlign.user_id);
+    
       this.formLabelAlign = res[0] //赋值
       this.calculateBMI();
     },
