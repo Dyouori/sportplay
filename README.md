@@ -65,6 +65,6 @@ npm run build
 
 剩下功能省略
 
-![image-20250719145702006](C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20250719145702006.png)
+![image/用户端轮播图和运动打卡.png]
 
 ![image-20250719145728935](C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20250719145728935.png)
