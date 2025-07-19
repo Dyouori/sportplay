@@ -57,7 +57,7 @@ npm run build
 
 人脸识别：
 
-![image-20250719145628808](C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20250719145628808.png)
+[![image-20250719145628808](C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20250719145628808.png)](https://github.com/Dyouori/sportplay/blob/2c9bad54241a7cce33cbd10deff0406ec81ccc59/image/%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB.png)
 
 #### 用户界面
 
