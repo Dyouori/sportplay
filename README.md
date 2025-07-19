@@ -64,7 +64,4 @@ npm run build
 首页是轮播图
 
 剩下功能省略
-
-![image/用户端轮播图和运动打卡.png]
-
-[![image-20250719145728935](C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20250719145728935.png)](https://github.com/Dyouori/sportplay/blob/main/image/%E7%94%A8%E6%88%B7%E7%AB%AF%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%92%8C%E8%BF%90%E5%8A%A8%E6%89%93%E5%8D%A1.png?raw=true)
+![](https://raw.githubusercontent.com/Dyouori/sportplay/refs/heads/main/image/%E7%94%A8%E6%88%B7%E7%AB%AF%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%92%8C%E8%BF%90%E5%8A%A8%E6%89%93%E5%8D%A1.png)
