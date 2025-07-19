@@ -12,9 +12,9 @@
         label-width="0px"
       >
         <!-- 用户名 -->
-        <el-form-item prop="username" >
+        <el-form-item prop="username">
           <el-input
-          :disabled="isSuperAdmin"
+            :disabled="isSuperAdmin"
             v-model="loginForm.username"
             prefix-icon="iconfont icon-denglu"
           ></el-input>
@@ -22,7 +22,7 @@
         <!-- 密码 -->
         <el-form-item prop="password">
           <el-input
-          :disabled="isSuperAdmin"
+            :disabled="isSuperAdmin"
             v-model="loginForm.password"
             prefix-icon="iconfont icon-mima"
             type="password"
@@ -34,7 +34,7 @@
         <!-- 验证码 -->
         <el-form-item prop="identifyCode" class="identify-code-item">
           <el-input
-          :disabled="isSuperAdmin"
+            :disabled="isSuperAdmin"
             v-model="loginForm.identifyCode"
             placeholder="请输入验证码"
             class="identify-code-input"
@@ -60,7 +60,6 @@
             placeholder="请选择身份"
             style="width: 418px"
             @change="handleRoleChange"
-          
           >
             <el-option :key="0" label="普通用户" :value="0"></el-option>
             <el-option :key="1" label="超级管理员" :value="1"></el-option>
@@ -72,26 +71,26 @@
           <el-button type="primary" @click="login">登录</el-button>
           <el-button type="info" @click="resetLoginForm">重置</el-button>
           <!-- 注册按钮 -->
-          <el-button type="success" @click="$router.push('/register')">注册</el-button>
+          <el-button type="success" @click="$router.push('/register')"
+            >注册</el-button
+          >
           <!-- <el-button type="primary" @click="faceLog">人脸登录</el-button> -->
-         <!-- <el-button type="primary" @click="$router.push('/faceLogin')">人脸登录</el-button> -->
+          <!-- <el-button type="primary" @click="$router.push('/faceLogin')">人脸登录</el-button> -->
         </el-form-item>
       </el-form>
-      
-      
     </div>
     <el-dialog
-  title="请输入管理员专用码"
-  :visible.sync="dialogVisible"
-  width="30%"
-  :before-close="handleClose">
- <el-input v-model="adminPSW" show-password></el-input>
-   <div style="margin-top: 20px; display: flex; justify-content: right;">
-    <el-button @click="dialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="submit">确 定</el-button>
-
-   </div>
-</el-dialog>
+      title="请输入管理员专用码"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :before-close="handleClose"
+    >
+      <el-input v-model="adminPSW" show-password></el-input>
+      <div style="margin-top: 20px; display: flex; justify-content: right">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="submit">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -103,14 +102,12 @@ export default {
     "identify-code": IdentifyCode,
   },
   data() {
-   
     return {
       loginForm: {
         username: "user1",
         password: "123456",
         identifyCode: "", // 添加验证码输入框绑定的数据
-        role:'',
-    
+        role: "",
       },
       loginRules: {
         username: [
@@ -138,32 +135,28 @@ export default {
       identifyCodes: "0123456789",
       identifyCode: "",
       dialogVisible: false,
-      adminPSW:'',
-    }
+      adminPSW: "",
+    };
   },
   computed: {
     isSuperAdmin() {
       return this.loginForm.role === 1;
-    }
+    },
   },
   methods: {
-    submit(){
-      if(this.adminPSW === '123456'){
-        this.dialogVisible = false
-        this.$router.push('/faceLogin')
-      }else{
+    submit() {
+      if (this.adminPSW === "123456") {
+        this.dialogVisible = false;
+        this.$router.push("/faceLogin");
+      } else {
         this.$message({
-          message: '密码错误',
-          type: 'error'
+          message: "密码错误",
+          type: "error",
         });
       }
-     
-      
     },
     handleClose(done) {
-        
-            done();
-         
+      done();
     },
     handleRoleChange(value) {
       if (value === 1) {
@@ -178,60 +171,59 @@ export default {
       this.$refs.loginFormRef.resetFields();
     },
     convertRole(role) {
-    // 根据role的值返回对应的角色字符串
-    return role === 1 ? "超级管理员" : "普通用户";
-  },
+      // 根据role的值返回对应的角色字符串
+      return role === 1 ? "超级管理员" : "普通用户";
+    },
     login() {
       // 在发送请求之前转换role
-    const roleToSend = this.convertRole(this.loginForm.role);
-    
-        // validate方法：一个参数--一个布尔值，看验证是否成功
-    this.$refs.loginFormRef.validate(async (valid) => {
-      if (!valid) return;
-      // 创建一个新的对象来发送到后端，包含转换后的role
-      const formData = {
-        ...this.loginForm,
-        role: roleToSend // 使用转换后的角色值
-      };
-      // 调用post请求--访问后台
-      const { data: res } = await this.$https.post("login", formData);
-      console.log(res);
-      
+      const roleToSend = this.convertRole(this.loginForm.role);
+
+      // validate方法：一个参数--一个布尔值，看验证是否成功
+      this.$refs.loginFormRef.validate(async (valid) => {
+        if (!valid) return;
+        // 创建一个新的对象来发送到后端，包含转换后的role
+        const formData = {
+          ...this.loginForm,
+          role: roleToSend, // 使用转换后的角色值
+        };
+        // 调用post请求--访问后台
+        const { data: res } = await this.$https.post("login", formData);
+        console.log(res);
+
         // 重命名为res,res就是后端控制层return回来的
         if (res.flag == "ok") {
           this.$message({
-        message: "登陆成功",
-        type: 'success',
-        duration: 1000 // 设置提示消失时间为1秒
-      });
+            message: "登陆成功",
+            type: "success",
+            duration: 1000, // 设置提示消失时间为1秒
+          });
           //这个success也有样式
           window.sessionStorage.setItem("user", JSON.stringify(res.user)); //存储
           window.sessionStorage.setItem("token", JSON.stringify(res.token));
           console.log(res.token);
 
-          if(res.user.role==='超级管理员'){
+          if (res.user.role === "超级管理员") {
             console.log("管理员");
-            
+
             this.$router.push({ path: "/manager" }); // 路由
-          }
-          else{
-            console.log("用户"+res.user.role);
-            
-            this.$router.push({ path: "/yonghu" }); 
+          } else {
+            console.log("用户" + res.user.role);
+
+            this.$router.push({ path: "/yonghu" });
           }
         } else {
           console.log(78678);
-          
-          this.$message.error('请检查您的用户名密码或身份权限')
-          this.loading = false
+
+          this.$message.error("请检查您的用户名密码或身份权限");
+          this.loading = false;
         }
       });
-    //  }else{
-    //   this.$message.error('请选择身份')
-    //  }
+      //  }else{
+      //   this.$message.error('请选择身份')
+      //  }
     },
     //注册
-   
+
     randomNum(min, max) {
       return Math.floor(Math.random() * (max - min) + min);
     },
@@ -245,7 +237,6 @@ export default {
           this.identifyCodes[this.randomNum(0, this.identifyCodes.length)];
       }
     },
-    
   },
   mounted() {
     this.makeCode(this.identifyCodes, 4);

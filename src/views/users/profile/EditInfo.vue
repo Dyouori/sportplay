@@ -179,6 +179,7 @@ export default {
     handleAvatarSuccess(res, file) {
       this.imageUrl = URL.createObjectURL(file.raw);
       this.editForm.pic = res;
+      window.location.reload()
     },
     beforeAvatarUpload(file) {
       const isJPG = file.type === "image/jpeg";

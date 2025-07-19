@@ -39,7 +39,7 @@
             :key="food.id"
           >
             <div slot="header" class="clearfix">
-              <span>{{ food.food_name }}</span>
+              <span>{{ food.foodName }}</span>
               <el-input-number
                 style="float: right; width: 124px"
                 v-model="food.quantity"

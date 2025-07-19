@@ -12,7 +12,7 @@
               <div slot="error" class="image-slot">
                 <img
                   style="width: 260px; height: 260px"
-                  src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
+                   :src="'http://localhost:9000/avaters/' + userPic"
                   alt=""
                 />
               </div>
@@ -69,10 +69,11 @@ export default {
   name: "RadarChart",
   created() {
     var userString = window.sessionStorage.getItem("user");
-
+    
     // 将字符串转换回JavaScript对象
     var user = JSON.parse(userString);
-    this.userPic = this.userPic = user.pic ? user.pic : "";
+    this.getUserPic(user.id);
+    this.userPic = user.pic ? user.pic : "";
   },
 
   data() {
@@ -81,6 +82,16 @@ export default {
     };
   },
   methods: {
+    getUserPic(id){
+      this.$https.get("getUserPic?id=" + id).then((res) => {
+        if(res.status === 200){
+          this.userPic = res.data
+        }
+       else {
+          Message.error(res.data.msg);
+        }
+      });
+    },
     handleSelect(key, keyPath) {
       // 检查当前路由是否与即将跳转的路由相同
       if (this.$route.path !== key) {

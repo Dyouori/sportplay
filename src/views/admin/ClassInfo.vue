@@ -18,7 +18,7 @@
         </el-input>
       </el-col>
       <!-- 搜索按钮 -->
-      <el-col :span="2">
+      <el-col :span="3">
         <el-button type="primary" @click="addClassClick">添加新课程</el-button>
       </el-col>
       <el-col :span="2">
@@ -69,7 +69,7 @@
       <el-table-column
         align="center"
         label="类别"
-        prop="classification_title"
+        prop="ctitle"
       ></el-table-column>
       <el-table-column align="center" label="封面" prop="cover">
         <template v-slot="scope">
@@ -139,7 +139,7 @@
             <el-option
               v-for="item in classificationList"
               :key="item.id"
-              :label="item.title"
+              :label="item.ctitle"
               :value="item.id"
             />
           </el-select>
@@ -225,13 +225,13 @@
         </el-form-item>
         <el-form-item label="课程分类" prop="">
           <el-select
-            v-model="addForm.classification_id"
+            v-model="addForm.classificationId"
             placeholder="请选择课程分类"
           >
             <el-option
               v-for="item in classificationList"
-              :key="item.title"
-              :label="item.title"
+              :key="item.id"
+              :label="item.ctitle"
               :value="item.id"
             />
           </el-select>
@@ -334,7 +334,7 @@ export default {
         effect: "",
         teacher: "",
         status: "",
-        classification_id: "",
+        classificationId: "",
       },
       rules: {
         title: [{ required: true, message: "请输入活动名称", trigger: "blur" }],
@@ -425,7 +425,8 @@ export default {
       const { data: res } = await this.$https.get("allclass", {
         params: this.queryInfo,
       });
-
+      console.log(res);
+      
       this.classList = res.data; // 将返回数据赋值，数据封装
       //  console.log(this.classList);
       this.total = res.numbers; // 总个数

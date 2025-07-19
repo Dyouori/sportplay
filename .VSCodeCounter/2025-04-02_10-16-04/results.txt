@@ -1,0 +1,139 @@
+Date : 2025-04-02 10:16:04
+Directory : d:\VUE\sportplay
+Total : 78 files,  20017 codes, 989 comments, 951 blanks, all 21957 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          3 |      9,177 |          0 |          3 |      9,180 |
+| Vue                |         45 |      8,787 |        706 |        626 |     10,119 |
+| CSS                |          9 |        874 |         33 |        131 |      1,038 |
+| JavaScript         |         17 |        757 |        246 |        137 |      1,140 |
+| HTML               |          2 |        388 |          4 |         48 |        440 |
+| JSON with Comments |          1 |         19 |          0 |          1 |         20 |
+| Markdown           |          1 |         15 |          0 |          5 |         20 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                   | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                      |         78 |     20,017 |        989 |        951 |     21,957 |
+| . (Files)                                                              |          7 |      9,163 |          1 |         14 |      9,178 |
+| public                                                                 |          1 |         17 |          2 |          2 |         21 |
+| src                                                                    |         70 |     10,837 |        986 |        935 |     12,758 |
+| src (Files)                                                            |          2 |         55 |         11 |         19 |         85 |
+| src\assets                                                             |          7 |        995 |         35 |        160 |      1,190 |
+| src\assets\css                                                         |          2 |         66 |         14 |         14 |         94 |
+| src\assets\font                                                        |          5 |        929 |         21 |        146 |      1,096 |
+| src\components                                                         |         19 |      1,903 |        152 |        174 |      2,229 |
+| src\components (Files)                                                 |          8 |        954 |        104 |         76 |      1,134 |
+| src\components\face                                                    |         11 |        949 |         48 |         98 |      1,095 |
+| src\components\face (Files)                                            |          1 |         26 |          1 |          7 |         34 |
+| src\components\face\components                                         |          5 |        582 |         28 |         66 |        676 |
+| src\components\face\components\desktop                                 |          2 |         45 |          0 |          4 |         49 |
+| src\components\face\components\face                                    |          2 |        384 |         21 |         45 |        450 |
+| src\components\face\components\faceLog                                 |          1 |        153 |          7 |         17 |        177 |
+| src\components\face\plugins                                            |          1 |          4 |          0 |          2 |          6 |
+| src\components\face\views                                              |          4 |        337 |         19 |         23 |        379 |
+| src\components\face\views\home                                         |          2 |        137 |          5 |         12 |        154 |
+| src\components\face\views\login                                        |          2 |        200 |         14 |         11 |        225 |
+| src\plugins                                                            |          1 |          4 |          0 |          2 |          6 |
+| src\router                                                             |          1 |        117 |         12 |         28 |        157 |
+| src\store                                                              |          1 |        103 |          3 |         13 |        119 |
+| src\utils                                                              |          7 |        215 |         50 |         36 |        301 |
+| src\views                                                              |         32 |      7,445 |        723 |        503 |      8,671 |
+| src\views\admin                                                        |         14 |      3,264 |        362 |        234 |      3,860 |
+| src\views\users                                                        |         18 |      4,181 |        361 |        269 |      4,811 |
+| src\views\users (Files)                                                |          6 |      1,835 |         79 |         92 |      2,006 |
+| src\views\users\profile                                                |         12 |      2,346 |        282 |        177 |      2,805 |
+| src\views\users\profile (Files)                                        |          7 |      1,668 |         82 |        105 |      1,855 |
+| src\views\users\profile\component                                      |          3 |        522 |        179 |         61 |        762 |
+| src\views\users\profile\videoModal                                     |          2 |        156 |         21 |         11 |        188 |
++------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                               | language           | code       | comment    | blank      | total      |
++------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| d:\VUE\sportplay\README.md                                             | Markdown           |         15 |          0 |          5 |         20 |
+| d:\VUE\sportplay\babel.config.js                                       | JavaScript         |          5 |          0 |          1 |          6 |
+| d:\VUE\sportplay\jsconfig.json                                         | JSON with Comments |         19 |          0 |          1 |         20 |
+| d:\VUE\sportplay\package-lock.json                                     | JSON               |      9,059 |          0 |          1 |      9,060 |
+| d:\VUE\sportplay\package.json                                          | JSON               |         39 |          0 |          1 |         40 |
+| d:\VUE\sportplay\public\index.html                                     | HTML               |         17 |          2 |          2 |         21 |
+| d:\VUE\sportplay\src\App.vue                                           | Vue                |         15 |          0 |          6 |         21 |
+| d:\VUE\sportplay\src\assets\css\global.css                             | CSS                |         13 |          4 |          0 |         17 |
+| d:\VUE\sportplay\src\assets\css\reset.css                              | CSS                |         53 |         10 |         14 |         77 |
+| d:\VUE\sportplay\src\assets\font\demo.css                              | CSS                |        435 |         19 |         86 |        540 |
+| d:\VUE\sportplay\src\assets\font\demo_index.html                       | HTML               |        371 |          2 |         46 |        419 |
+| d:\VUE\sportplay\src\assets\font\iconfont.css                          | CSS                |         43 |          0 |         13 |         56 |
+| d:\VUE\sportplay\src\assets\font\iconfont.js                           | JavaScript         |          1 |          0 |          0 |          1 |
+| d:\VUE\sportplay\src\assets\font\iconfont.json                         | JSON               |         79 |          0 |          1 |         80 |
+| d:\VUE\sportplay\src\components\404.vue                                | Vue                |         43 |          0 |          4 |         47 |
+| d:\VUE\sportplay\src\components\Home.vue                               | Vue                |         12 |          0 |          4 |         16 |
+| d:\VUE\sportplay\src\components\IdentifyCode.vue                       | Vue                |        124 |         25 |          1 |        150 |
+| d:\VUE\sportplay\src\components\Login.vue                              | Vue                |        278 |         29 |         14 |        321 |
+| d:\VUE\sportplay\src\components\Manager.vue                            | Vue                |        215 |         36 |         27 |        278 |
+| d:\VUE\sportplay\src\components\Register.vue                           | Vue                |        155 |          6 |         12 |        173 |
+| d:\VUE\sportplay\src\components\User.vue                               | Vue                |        116 |          8 |         10 |        134 |
+| d:\VUE\sportplay\src\components\Welcome.vue                            | Vue                |         11 |          0 |          4 |         15 |
+| d:\VUE\sportplay\src\components\face\components\desktop\index.css      | CSS                |         27 |          0 |          1 |         28 |
+| d:\VUE\sportplay\src\components\face\components\desktop\index.vue      | Vue                |         18 |          0 |          3 |         21 |
+| d:\VUE\sportplay\src\components\face\components\faceLog\index.vue      | Vue                |        153 |          7 |         17 |        177 |
+| d:\VUE\sportplay\src\components\face\components\face\index.css         | CSS                |         54 |          0 |          5 |         59 |
+| d:\VUE\sportplay\src\components\face\components\face\index.vue         | Vue                |        330 |         21 |         40 |        391 |
+| d:\VUE\sportplay\src\components\face\face_axios.js                     | JavaScript         |         26 |          1 |          7 |         34 |
+| d:\VUE\sportplay\src\components\face\plugins\element.js                | JavaScript         |          4 |          0 |          2 |          6 |
+| d:\VUE\sportplay\src\components\face\views\home\index.css              | CSS                |         70 |          0 |          3 |         73 |
+| d:\VUE\sportplay\src\components\face\views\home\index.vue              | Vue                |         67 |          5 |          9 |         81 |
+| d:\VUE\sportplay\src\components\face\views\login\index.css             | CSS                |        125 |          0 |          4 |        129 |
+| d:\VUE\sportplay\src\components\face\views\login\index.vue             | Vue                |         75 |         14 |          7 |         96 |
+| d:\VUE\sportplay\src\main.js                                           | JavaScript         |         40 |         11 |         13 |         64 |
+| d:\VUE\sportplay\src\plugins\element.js                                | JavaScript         |          4 |          0 |          2 |          6 |
+| d:\VUE\sportplay\src\router\index.js                                   | JavaScript         |        117 |         12 |         28 |        157 |
+| d:\VUE\sportplay\src\store\user.js                                     | JavaScript         |        103 |          3 |         13 |        119 |
+| d:\VUE\sportplay\src\utils\aliPay.vue                                  | Vue                |         91 |          7 |         12 |        110 |
+| d:\VUE\sportplay\src\utils\datetime.js                                 | JavaScript         |         19 |         10 |          1 |         30 |
+| d:\VUE\sportplay\src\utils\http.js                                     | JavaScript         |         32 |          8 |          8 |         48 |
+| d:\VUE\sportplay\src\utils\localstorage.js                             | JavaScript         |         18 |          0 |          1 |         19 |
+| d:\VUE\sportplay\src\utils\request.js                                  | JavaScript         |         19 |          1 |          6 |         26 |
+| d:\VUE\sportplay\src\utils\storage.js                                  | JavaScript         |         18 |          0 |          1 |         19 |
+| d:\VUE\sportplay\src\utils\validate.js                                 | JavaScript         |         18 |         24 |          7 |         49 |
+| d:\VUE\sportplay\src\views\admin\AdminInfo copy.vue                    | Vue                |        219 |         46 |         22 |        287 |
+| d:\VUE\sportplay\src\views\admin\AdminInfo.vue                         | Vue                |        326 |         25 |         41 |        392 |
+| d:\VUE\sportplay\src\views\admin\Charts.vue                            | Vue                |         66 |          1 |         12 |         79 |
+| d:\VUE\sportplay\src\views\admin\ClassInfo.vue                         | Vue                |        527 |         41 |         32 |        600 |
+| d:\VUE\sportplay\src\views\admin\Classification.vue                    | Vue                |        233 |         33 |          8 |        274 |
+| d:\VUE\sportplay\src\views\admin\Comment.vue                           | Vue                |        123 |          6 |          6 |        135 |
+| d:\VUE\sportplay\src\views\admin\CookBook.vue                          | Vue                |        455 |         42 |         26 |        523 |
+| d:\VUE\sportplay\src\views\admin\FoodInfo.vue                          | Vue                |        403 |         38 |         24 |        465 |
+| d:\VUE\sportplay\src\views\admin\FoodType.vue                          | Vue                |        236 |         33 |          7 |        276 |
+| d:\VUE\sportplay\src\views\admin\Goods.vue                             | Vue                |         10 |          0 |          5 |         15 |
+| d:\VUE\sportplay\src\views\admin\Order.vue                             | Vue                |        218 |         36 |         16 |        270 |
+| d:\VUE\sportplay\src\views\admin\SportMod.vue                          | Vue                |        102 |          0 |         10 |        112 |
+| d:\VUE\sportplay\src\views\admin\UserList.vue                          | Vue                |        292 |         61 |         20 |        373 |
+| d:\VUE\sportplay\src\views\admin\index.css                             | CSS                |         54 |          0 |          5 |         59 |
+| d:\VUE\sportplay\src\views\users\BodyHealth.vue                        | Vue                |        225 |          4 |          8 |        237 |
+| d:\VUE\sportplay\src\views\users\ClassDetail.vue                       | Vue                |        690 |         25 |         15 |        730 |
+| d:\VUE\sportplay\src\views\users\FoodHealth.vue                        | Vue                |        260 |         11 |         10 |        281 |
+| d:\VUE\sportplay\src\views\users\IndexHome.vue                         | Vue                |        300 |         26 |         41 |        367 |
+| d:\VUE\sportplay\src\views\users\ShowClass.vue                         | Vue                |        286 |         12 |         11 |        309 |
+| d:\VUE\sportplay\src\views\users\pay.vue                               | Vue                |         74 |          1 |          7 |         82 |
+| d:\VUE\sportplay\src\views\users\profile\Chart.vue                     | Vue                |        217 |         11 |         17 |        245 |
+| d:\VUE\sportplay\src\views\users\profile\EditInfo.vue                  | Vue                |        278 |         15 |         11 |        304 |
+| d:\VUE\sportplay\src\views\users\profile\HealthData.vue                | Vue                |        168 |         13 |         12 |        193 |
+| d:\VUE\sportplay\src\views\users\profile\Index.vue                     | Vue                |        113 |          9 |          8 |        130 |
+| d:\VUE\sportplay\src\views\users\profile\MyMoney.vue                   | Vue                |        352 |         10 |         25 |        387 |
+| d:\VUE\sportplay\src\views\users\profile\MyOrder.vue                   | Vue                |        269 |         11 |         20 |        300 |
+| d:\VUE\sportplay\src\views\users\profile\RunData.vue                   | Vue                |        271 |         13 |         12 |        296 |
+| d:\VUE\sportplay\src\views\users\profile\component\RunReportModel.vue  | Vue                |        190 |          4 |         13 |        207 |
+| d:\VUE\sportplay\src\views\users\profile\component\calendar.js         | JavaScript         |        307 |        175 |         42 |        524 |
+| d:\VUE\sportplay\src\views\users\profile\component\calendar.vue        | Vue                |         25 |          0 |          6 |         31 |
+| d:\VUE\sportplay\src\views\users\profile\videoModal\PlayVideoModal.vue | Vue                |         46 |          0 |          3 |         49 |
+| d:\VUE\sportplay\src\views\users\profile\videoModal\Video.vue          | Vue                |        110 |         21 |          8 |        139 |
+| d:\VUE\sportplay\vite.config.js                                        | JavaScript         |         22 |          1 |          3 |         26 |
+| d:\VUE\sportplay\vue.config.js                                         | JavaScript         |          4 |          0 |          2 |          6 |
+| Total                                                                  |                    |     20,017 |        989 |        951 |     21,957 |
++------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

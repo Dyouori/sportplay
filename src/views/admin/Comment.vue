@@ -27,13 +27,13 @@
         width="250px"
         align="center"
         label="评论课程"
-        prop="class_title"
+        prop="title"
       ></el-table-column>
       <el-table-column
       width="250px"
         align="center"
         label="发布时间"
-        prop="comment_time"
+        prop="commentTime"
       ></el-table-column>
       <el-table-column
         align="center"

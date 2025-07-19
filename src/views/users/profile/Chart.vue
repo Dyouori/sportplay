@@ -91,6 +91,8 @@ export default {
     initEcharts() {
   let userId = JSON.parse(window.sessionStorage.getItem("user"));
   http.get("weightChart", { params: { id: userId.id } }).then((res) => {
+    console.log(res);
+    
     if (res.data.data && res.data.data.length > 0) {
       // 创建一个对象来存储最后更改的记录
       const lastChanges = {};
